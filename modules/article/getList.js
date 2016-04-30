@@ -21,35 +21,78 @@ var querystring=require("querystring");
 //tag  //当前分类下，按标签检索，值是汉字（或编码后的）
 
 //参数是示例
-var param ={
-    type:'',
-    tag:'',
-    flag:'new',
-    page:1
-};
-getList(param);
-function getList(param){
+//var param ={
+//    tag:'',
+//    slug:'',
+//    flag:'new',
+//    page:1
+//};
+//getList(param);
+function getList(param,callback){
    //type默认是全部
     if(param == undefined || param == null){
-        //callback('Param Error');
+        callback('Param Error');
     }
     var paramString = querystring.stringify(param);
-    console.log(paramString);
+    //console.log(paramString);
     var url = 'http://www.xinli001.com/ajax/article-list.json?';
     request
     (
         {
-            uri:url+paramString,
-            encoding:null
+            uri:url+paramString
+
         },function(err,res,body){
         if(err){
-            //callback(err);
+            callback(err);
             return;
         }
         var $ =cheerio.load(body);
-        console.log(body.toString());
+        var temp =$._root.children;
+        //var lenght = temp.length;
+        var dataList = [];
+        temp.forEach(function (elem){
+            var item={};
+            var dtURL = elem.children[1].children[1].attribs['href'];//文章的链接
+            var id = dtURL.substring(29).trim();
+            var img =  elem.children[1].children[1].children[0].attribs['src'].split('!')[0];//图片的链接  ！180*120
+            //console.log(id);
+            var title = elem.children[3].children[1].children[0].children[0].data;//文章标题
+            var author = elem.children[3].children[3].children[1].children[1].children[0].data.trim();//作者
+            var view = elem.children[3].children[3].children[3].children[1].children[0].children[0].data;//阅览次数
+            var tag=[];
+            var tagTp = elem.children[3].children[5];
+            if(tagTp != undefined){
+                 if(tagTp.name == 'dl'){
+                     var tags = tagTp.children;
+                     tags.forEach(function(t){
+                         if(t.name == 'dd'){
+                             //console.log(t.children[0].children[0].data);//标签
+                             tag.push(t.children[0].children[0].data);
+                         }
+                     });
+                     //console.log(tagTp)
+
+                 }
+
+            }
+            else {
+                tag.push('none');
+            }
+            item.title = title;
+            item.image = img;
+            item.view = view;
+            item.tags = tag;
+            item.ID = id;
+            item.author = author;
+            dataList.push(item);//添加数据
+
+            //console.log('=============================')
+
+        });
+        callback(dataList);
+        return;
+            //console.log(dataList)
     }
-    )
-
-
+    );
 }
+module.exports = getList;
