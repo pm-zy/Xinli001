@@ -43,6 +43,7 @@ var uniResult = {
   Detail: null
 };
 
+
 /// catch 404 and forward to error handler
 app.use(function (req, res, next) {
   uniResult.Detail = 'NOT_FOUND';

@@ -6,7 +6,6 @@ var router = express.Router();
 var parsers = require('../modules/parsers');
 var getList = require('../modules/article/getList');
 
-
 router.use('/getList',function(req,res){
     var s = (req.param('sort') == null) ? "":req.param('sort');
     var f = (req.param('flag') == null) ? "":req.param('flag');

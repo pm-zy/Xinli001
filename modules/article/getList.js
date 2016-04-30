@@ -95,4 +95,5 @@ function getList(param,callback){
     }
     );
 }
+
 module.exports = getList;
