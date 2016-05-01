@@ -3,10 +3,9 @@
 
 # Xinli001
 壹心理文章Node.js API
-URL:
+临时URL（下个月月初会改）:http://www.varpm.com:3002/
 
-运行端口：3002
-
+自己搭的话运行端口：3002
 
 #文章
 ##获取当前分类下的标签（tag）
@@ -41,7 +40,7 @@ URL:/article/getList
 
 ####示例代码
 ```
-http://localhost:3002/article/getList?flag=new&page=1
+http://www.varpm.com:3002/article/getList?flag=new&page=1
 ```
 ####返回信息示例
 ```json
