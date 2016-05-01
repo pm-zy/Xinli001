@@ -78,6 +78,7 @@ function getList(param,callback){
             else {
                 tag.push('none');
             }
+            //console.log(param.page);
             item.title = title;
             item.image = img;
             item.view = view;

@@ -7,10 +7,11 @@ var parsers = require('../modules/parsers');
 var getList = require('../modules/article/getList');
 
 router.use('/getList',function(req,res){
-    var s = (req.params.sort== null) ? "":req.params.sort;
-    var f = (req.params.flag == null) ? "":req.params.flag;
-    var p = (req.params.page == null) ? 1:req.params.page;
-    var t = (req.params.tag == null) ? "":req.params.tag;
+    //console.log(req.query)
+    var s = (req.query.sort== null) ? "":req.query.sort;
+    var f = (req.query.flag == null) ? "":req.query.flag;
+    var p = (req.query.page == null) ? 1:req.query.page;
+    var t = (req.query.tag == null) ? "":req.query.tag;
 
     var paramObj = {
         slug:s,

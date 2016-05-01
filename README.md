@@ -12,7 +12,7 @@
 没写呢
 ##按分类获取文章列表
 URL:/article/getList
-请求方式:GET (POST/JSONP也可用)
+请求方式:GET
 参数:
 ```
 'sort' : string
