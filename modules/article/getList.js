@@ -32,6 +32,7 @@ function getList(param,callback){
    //type默认是全部
     if(param == undefined || param == null){
         callback('Param Error');
+        return;
     }
     var paramString = querystring.stringify(param);
     //console.log(paramString);
