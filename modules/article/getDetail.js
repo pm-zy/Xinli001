@@ -9,9 +9,9 @@ var cheerio = require('cheerio');
 //div.text
 //题图：div.text>p>img
 
-function getDetail(id){
+function getDetail(id,callback){
     if(id == undefined || id == null || id == ""){
-        //callback('Param Error');
+        callback('Param Error');
         return;
     }
     var url = 'http://www.xinli001.com/info/';
@@ -25,15 +25,24 @@ function getDetail(id){
                 callback(err);
                 return;
             }
-            var $ = cheerio.load(body);
+            var $ = cheerio.load(body,{decodeEntities: false});
             //console.log(body);
             var date = $('.attr')[0].children[3].children[0].data;//发表时间
-            var detail = $('.texts')[0];
+            $('.copyright').remove();
+            $('#zan-btn').remove();
+            var detail = $.html('.texts');//文章内容
+            var title =  $.html('.title >h2');
+           title = title.slice(4,-5);
+            //console.log(title)
+            var textObj = {};
+            textObj.title = title;
+            textObj.content = detail;
+            textObj.date = date;
+            callback(textObj);
+            //console.log(body);
 
-            console.log(detail);
         }
     )
 
 }
-getDetail(100310245);
-module.exports = getDetail();
+module.exports = getDetail;

@@ -5,7 +5,7 @@ var express = require('express');
 var router = express.Router();
 var parsers = require('../modules/parsers');
 var getList = require('../modules/article/getList');
-
+var getDetail = require('../modules/article/getDetail');
 router.use('/getList',function(req,res){
     //console.log(req.query)
     var s = (req.query.sort== null) ? "":req.query.sort;
@@ -23,4 +23,10 @@ router.use('/getList',function(req,res){
         parsers.resultProc(req,result,res);
     });
 });
+router.use('/getDetail/:id',function(req,res){
+    var id = req.params.id;
+    getDetail(id,function(result){
+        parsers.resultProc(req,result,res);
+    })
+})
 module.exports = router;
