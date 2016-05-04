@@ -65,6 +65,10 @@ function getList(param,callback){
             if(tagTp != undefined){
                  if(tagTp.name == 'dl'){
                      var tags = tagTp.children;
+                     if ( tags.length<=0){
+                         callback('null');
+                         return;
+                     }
                      tags.forEach(function(t){
                          if(t.name == 'dd'){
                              //console.log(t.children[0].children[0].data);//标签
