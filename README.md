@@ -7,7 +7,56 @@
 
 #文章
 ##获取当前分类下的标签（tag）
-没写呢
+
+URL:/article/getTags
+请求方式：GET/POST/JSONP
+参数：
+```
+'sort':string
+```
+###sort可选值：
+- 全部 ""
+- 婚恋 "marry"
+- 亲子 "family"
+- 职场 "career"
+- 健康 "healthy"
+- 科普 "science"
+
+####示例代码
+```
+http://www.varpm.com:3002/article/getTags?sort=family
+```
+####返回信息示例
+```json
+{
+    "Result": true,
+    "Detail": {
+        "tags": [
+            "0-3岁",
+            "4-6岁",
+            "幼小衔接",
+            "小学期",
+            "青春期",
+            "儿童心理",
+            "情绪调整",
+            "习惯培养",
+            "交友问题",
+            "行为纠正",
+            "性教育",
+            "亲子沟通",
+            "隔代抚养",
+            "父母成长",
+            "亲子游戏",
+            "儿童测试",
+            "家庭关系",
+            "家有二孩",
+            "围产期影响",
+            "图解心理"
+        ]
+    }
+}
+```
+
 ##按分类获取文章列表
 URL:/article/getList
 请求方式:GET
