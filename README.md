@@ -1,8 +1,6 @@
 # Xinli001
 壹心理文章Node.js API
 
-# Xinli001
-壹心理文章Node.js API
 临时URL（下个月月初会改）:http://www.varpm.com:3002/
 
 自己搭的话运行端口：3002
