@@ -78,22 +78,17 @@ function getList(param,callback){
                      //console.log(tagTp)
 
                  }
+                item.title = title;
+                item.image = img;
+                item.view = view;
+                item.tags = tag;
+                item.ID = id;
+                item.author = author;
+                dataList.push(item);//添加数据
 
             }
-            else {
-                tag.push('none');
-            }
+
             //console.log(param.page);
-            item.title = title;
-            item.image = img;
-            item.view = view;
-            item.tags = tag;
-            item.ID = id;
-            item.author = author;
-            dataList.push(item);//添加数据
-
-            //console.log('=============================')
-
         });
         callback(dataList);
         return;

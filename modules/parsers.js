@@ -10,8 +10,9 @@ var callbackHeader;
 var res;
 
 var uniResult = {
-    Result: false,
-    Detail: null
+    status: false,
+    info: "",
+    data:null
 };
 
 function resultProc(req, result, resParam) {
@@ -19,46 +20,46 @@ function resultProc(req, result, resParam) {
     callbackHeader = req.param('callback');
     switch (result) {
         case 'Account Error':
-            apiError('ACCOUNT_ERROR');
+            apiError(401,'ACCOUNT_ERROR');
             break;
         case 'Not Login':
-            apiError('USER_NOT_LOGIN');
+            apiError(403,'USER_NOT_LOGIN');
             break;
         case 'null':
             apiReturn('NO_RECORD');
             break;
         case 'Server Error':
-            apiError('REMOTE_SERVER_ERROR');
+            apiError(500,'REMOTE_SERVER_ERROR');
             break;
         case 'Param Error':
-            apiError('PARAM_ERROR');
+            apiError(400,'PARAM_ERROR');
             break;
-        case 'Renew Failed':
-            apiError('RENEW_FAILED');
-            break;
+        //case 'Renew Failed':
+        //    apiError('RENEW_FAILED');
+        //    break;
         case 'Added Succeed':
             apiReturn('ADDED_SUCCEED');
             break;
         case 'Already In Favorite':
             apiReturn('ALREADY_IN_FAVORITE');
             break;
-        case 'Added Failed':
-            apiError('ADDED_FAILED');
-            break;
-        case 'Deleted Succeed':
-            apiReturn('DELETED_SUCCEED');
-            break;
-        case 'Deleted Failed':
-            apiError('DELETED_FAILED');
-            break;
+        //case 'Added Failed':
+        //    apiError('ADDED_FAILED');
+        //    break;
+        //case 'Deleted Succeed':
+        //    apiReturn('DELETED_SUCCEED');
+        //    break;
+        //case 'Deleted Failed':
+        //    apiError('DELETED_FAILED');
+        //    break;
         case 'Out Of Range':
-            apiError('OUT_OF_RANGE');
+            apiError(400,'OUT_OF_RANGE');
             break;
         case 'Session Invalid':
-            apiError('SESSION_INVALID');
+            apiError(403,'SESSION_INVALID');
             break;
         case 'No Info':
-            apiError('NO_INFO');
+            apiError(404,'NO_INFO');
             break;
         default:
             apiReturn(result);
@@ -66,15 +67,17 @@ function resultProc(req, result, resParam) {
     }
 }
 
-function apiError(err) {
-    uniResult.Result = false;
-    uniResult.Detail = err;
+function apiError(status,err) {
+    uniResult.status = status ;
+    uniResult.info = err;
+    uniResult.data = {};
     returnJSON(res);
 }
 
 function apiReturn(content) {
-    uniResult.Result = true;
-    uniResult.Detail = content;
+    uniResult.status = 200 ;
+    uniResult.data = content;
+    uniResult.info = 'SUCCESS'
     returnJSON(res);
 }
 
