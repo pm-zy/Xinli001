@@ -37,10 +37,8 @@ function  getTags (slug ,callback){
                          tags.push(it.attribs['data-tag'])
                     }
                 });
-            var resu = {
-                tags:tags
-            }
-            callback(resu)
+
+            callback(tags)
 
 
         }
