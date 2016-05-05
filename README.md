@@ -1,7 +1,7 @@
 # Xinli001
 壹心理文章Node.js API
 
-临时URL（下个月月初会改）:http://www.varpm.com:3002/
+临时URL（下个月月初会改）:http://www.varpm.com:3002/v1
 
 自己搭的话运行端口：3002
 
@@ -9,7 +9,9 @@
 ##获取当前分类下的标签（tag）
 
 URL:/article/getTags
+
 请求方式：GET/POST/JSONP
+
 参数：
 ```
 'sort':string
@@ -24,7 +26,7 @@ URL:/article/getTags
 
 ####示例代码
 ```
-http://www.varpm.com:3002/article/getTags?sort=family
+http://www.varpm.com:3002/v1/article/getTags?sort=family
 ```
 ####返回信息示例
 ```json
@@ -58,9 +60,13 @@ http://www.varpm.com:3002/article/getTags?sort=family
 ```
 
 ##按分类获取文章列表
+
 URL:/article/getList
+
 请求方式:GET
+
 参数:
+
 ```
 'sort' : string
 'tag'  : string
@@ -87,7 +93,7 @@ URL:/article/getList
 
 ####示例代码
 ```
-http://www.varpm.com:3002/article/getList?flag=new&page=1
+http://www.varpm.com:3002/v1/article/getList?flag=new&page=1
 ```
 ####返回信息示例
 ```json
@@ -220,7 +226,7 @@ URL:/article/getDetail/
 ```
 ####示例代码
 ```
-http://www.varpm.com:3002/article/getDetail/100317885
+http://www.varpm.com:3002/v1/article/getDetail/100317885
 ```
 ####返回信息示例
 ```json
