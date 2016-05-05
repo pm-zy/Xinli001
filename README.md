@@ -292,3 +292,67 @@ http://www.varpm.com:3002/v1/article/getDetail/100317885
 }
 
 ```
+
+##获取轮播图
+
+URL:/article/getBanner/
+
+请求方式:GET/POST/JSONP
+
+####参数: 无
+
+####示例代码
+```
+http://www.varpm.com:3002/v1/article/getBanner/
+```
+
+####返回信息
+```js
+{
+    status:number
+    info:string
+    data:[{
+            ID:string //对应文章的ID
+            image:string(URL) //图片地址
+            tip:string //每张图下面的配字
+            },
+            ...
+        ]
+}
+```
+
+
+####返回信息示例
+```json
+{
+    "status": 200,
+    "info": "SUCCESS",
+    "data": [
+        {
+            "ID": "100008511",
+            "image": "http://image.xinli001.com/20160505/0903508ilhiukplyricd9t.jpg",
+            "tip": "立夏 | 背着青春，行走于街头"
+        },
+        {
+            "ID": "100315086",
+            "image": "http://ossimg.xinli001.com/20160504/418f8ae767fc659494db9d64178282da.jpg",
+            "tip": "4岁自闭症儿童死于康复机构，我们应该知道什么？"
+        },
+        {
+            "ID": "100317968",
+            "image": "http://ossimg.xinli001.com/20160503/5b2ef06fdc71d1b6ed89b2b0a98a9ef8.jpg",
+            "tip": "为什么有些女性没有体验过性高潮？"
+        },
+        {
+            "ID": "100317973",
+            "image": "http://image.xinli001.com/20160504/083427sjsrzfs8a4xw06b0.jpg",
+            "tip": "\"一切都是父母的错“正在毁灭我们的社会"
+        },
+        {
+            "ID": "100015123",
+            "image": "http://image.xinli001.com/20150429/154214536761e933f2835c.jpg",
+            "tip": "青年节|所有时代的青年人，共同的人生困境是什么？"
+        }
+    ]
+}
+```

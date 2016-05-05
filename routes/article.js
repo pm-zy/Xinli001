@@ -9,6 +9,8 @@ var parsers = require('../modules/parsers');
 var getList = require('../modules/article/getList');
 var getDetail = require('../modules/article/getDetail');
 var getTags = require('../modules/article/getTag');
+var getBanner = require('../modules/article/getBanner');
+
 router.use('/getList',function(req,res){
 
     var s = (req.query.sort== null) ? "":req.query.sort;
@@ -37,5 +39,10 @@ router.use('/getTags',function (req,res){
     getTags(slug,function(result){
         parsers.resultProc(req,result,res);
     })
-})
+});
+router.use('/getBanner',function (req,res){
+    getBanner(function(result){
+        parsers.resultProc(req,result,res);
+    });
+});
 module.exports = router;
