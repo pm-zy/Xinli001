@@ -259,6 +259,7 @@ URL:/article/getDetail/
 ```
 'ID' : string
 ```
+
 ####返回信息
 ```js
 {
@@ -272,7 +273,6 @@ URL:/article/getDetail/
             ...
         ]
 }
-
 ```
 
 ####示例代码

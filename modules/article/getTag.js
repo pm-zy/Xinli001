@@ -19,7 +19,6 @@ function  getTags (slug ,callback){
     if(i === -1){
         i=0;
     }
-    //console.log('i='+i);
     request(
         {
            uri: url

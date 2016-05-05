@@ -6,7 +6,6 @@
  * Created by 国正 on 2014/7/13.
  */
 var callbackHeader;
-
 var res;
 
 var uniResult = {

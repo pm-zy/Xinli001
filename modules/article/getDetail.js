@@ -14,6 +14,7 @@ function getDetail(id,callback){
         callback('Param Error');
         return;
     }
+
     var url = 'http://www.xinli001.com/info/';
 
     request(

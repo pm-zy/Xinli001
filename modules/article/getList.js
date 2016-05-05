@@ -27,7 +27,7 @@ var querystring=require("querystring");
 //    flag:'new',
 //    page:1
 //};
-//getList(param);
+
 function getList(param,callback){
    //type默认是全部
     if(param == undefined || param == null){
