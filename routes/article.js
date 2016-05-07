@@ -10,6 +10,7 @@ var getList = require('../modules/article/getList');
 var getDetail = require('../modules/article/getDetail');
 var getTags = require('../modules/article/getTag');
 var getBanner = require('../modules/article/getBanner');
+var getComment = require('../modules/article/getComment');
 
 router.use('/getList',function(req,res){
 
@@ -42,6 +43,16 @@ router.use('/getTags',function (req,res){
 });
 router.use('/getBanner',function (req,res){
     getBanner(function(result){
+        parsers.resultProc(req,result,res);
+    });
+});
+router.use('/getComment',function (req,res){
+    var param = {
+        id:req.query.id,
+        page:req.query.page
+    };
+    //console.log(req.query.id)
+    getComment(param,function(result){
         parsers.resultProc(req,result,res);
     });
 });

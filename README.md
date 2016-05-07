@@ -10,7 +10,7 @@
 
 URL:/article/getTags
 
-请求方式：GET/POST/JSONP
+请求方式：GET/SONP
 
 参数：
 ```
@@ -352,6 +352,110 @@ http://www.varpm.com:3002/v1/article/getBanner/
             "ID": "100015123",
             "image": "http://image.xinli001.com/20150429/154214536761e933f2835c.jpg",
             "tip": "青年节|所有时代的青年人，共同的人生困境是什么？"
+        }
+    ]
+}
+```
+
+##获取某篇文章的评论
+
+URL:/article/getComment/
+
+请求方式:GET/JSONP
+
+####参数:
+```
+'id':string  //文章的ID
+'page':number  //评论的页数，默认第一页
+```
+
+####示例代码
+```
+http://www.varpm.com:3002/v1/article/getComment?id=100317971&page=1
+```
+
+####返回信息
+```js
+{
+    status:number
+    info:string
+    data:[{
+            userPic:string(URL) //用户头像
+            userName:string //用户名
+            comment:string //评论内容
+            date:string  //评论发表的时间
+            },
+            ...
+        ]
+}
+```
+
+
+####返回信息示例
+```json
+{
+    "status": 200,
+    "info": "SUCCESS",
+    "data": [
+        {
+            "userPic": "http://ossimg.xinli001.com/20160329/9fe4842afb2c58c2200a1b9ae7a68ca9.png",
+            "userName": "凝心者",
+            "comment": "90%相同  只有一点 我有朋友  虽然不多 但还不错",
+            "date": "5小时前"
+        },
+        {
+            "userPic": "http://ossimg.xinli001.com/20160329/9fe4842afb2c58c2200a1b9ae7a68ca9.png",
+            "userName": "錦繡",
+            "comment": "一模一樣",
+            "date": "7小时前"
+        },
+        {
+            "userPic": "http://ossimg.xinli001.com/20160329/9fe4842afb2c58c2200a1b9ae7a68ca9.png",
+            "userName": "一匹猫ZzZ",
+            "comment": "几乎一模一样，特别是社交圈子和社交状态变化",
+            "date": "23小时前"
+        },
+        {
+            "userPic": "http://ossimg.xinli001.com/20160329/9fe4842afb2c58c2200a1b9ae7a68ca9.png",
+            "userName": "qq_fOSd0IDy",
+            "comment": "电话来了不想接，事后觉得自己人品有问题。看来这是正常现象。。。",
+            "date": "1日前"
+        },
+        {
+            "userPic": "http://ossimg.xinli001.com/20160329/9fe4842afb2c58c2200a1b9ae7a68ca9.png",
+            "userName": "qq_smZ28Mer",
+            "comment": "最后一项简直一模一样",
+            "date": "2日前"
+        },
+        {
+            "userPic": "http://ossimg.xinli001.com/20160329/9fe4842afb2c58c2200a1b9ae7a68ca9.png",
+            "userName": "妮妮7949",
+            "comment": "为了不回答这些问题，我愿意出钱！（认真脸）",
+            "date": "2日前"
+        },
+        {
+            "userPic": "http://ossimg.xinli001.com/20160329/9fe4842afb2c58c2200a1b9ae7a68ca9.png",
+            "userName": "新晴阳光",
+            "comment": "这不都是我吗？原来我很正常",
+            "date": "2日前"
+        },
+        {
+            "userPic": "http://ossimg.xinli001.com/20160329/9fe4842afb2c58c2200a1b9ae7a68ca9.png",
+            "userName": "lvse洋",
+            "comment": "已收藏",
+            "date": "2日前"
+        },
+        {
+            "userPic": "http://ossimg.xinli001.com/20160329/9fe4842afb2c58c2200a1b9ae7a68ca9.png",
+            "userName": "lvse洋",
+            "comment": "为了不愿意听到这些问题，我愿意出钱，对不起笑出声，准的很",
+            "date": "2日前"
+        },
+        {
+            "userPic": "http://ossimg.xinli001.com/20160329/9fe4842afb2c58c2200a1b9ae7a68ca9.png",
+            "userName": "wu无聊",
+            "comment": "我是中向性格，感觉真好！",
+            "date": "2日前"
         }
     ]
 }

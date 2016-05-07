@@ -25,7 +25,7 @@ function resultProc(req, result, resParam) {
             apiError(403,'USER_NOT_LOGIN');
             break;
         case 'null':
-            apiReturn('NO_RECORD');
+            apiReturn(204,'NO_RECORD');
             break;
         case 'Server Error':
             apiError(500,'REMOTE_SERVER_ERROR');
@@ -37,10 +37,10 @@ function resultProc(req, result, resParam) {
         //    apiError('RENEW_FAILED');
         //    break;
         case 'Added Succeed':
-            apiReturn('ADDED_SUCCEED');
+            apiReturn(200,'ADDED_SUCCEED');
             break;
         case 'Already In Favorite':
-            apiReturn('ALREADY_IN_FAVORITE');
+            apiReturn(200,'ALREADY_IN_FAVORITE');
             break;
         //case 'Added Failed':
         //    apiError('ADDED_FAILED');
@@ -61,7 +61,7 @@ function resultProc(req, result, resParam) {
             apiError(404,'NO_INFO');
             break;
         default:
-            apiReturn(result);
+            apiReturn(200,result);
             break;
     }
 }
@@ -73,8 +73,8 @@ function apiError(status,err) {
     returnJSON(res);
 }
 
-function apiReturn(content) {
-    uniResult.status = 200 ;
+function apiReturn(status,content) {
+    uniResult.status = status ;
     uniResult.data = content;
     uniResult.info = 'SUCCESS'
     returnJSON(res);

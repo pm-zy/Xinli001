@@ -28,7 +28,14 @@ function getDetail(id,callback){
             }
             var $ = cheerio.load(body,{decodeEntities: false});
             //console.log(body);
-            var date = $('.attr')[0].children[3].children[0].data;//发表时间
+            try{
+                var date = $('.attr')[0].children[3].children[0].data;//发表时间
+            }
+            catch (e){
+                callback('null');
+                return;
+            }
+            //var date = $('.attr')[0].children[3].children[0].data;//发表时间
             $('.copyright').remove();
             $('#zan-btn').remove();
             var detail = $.html('.texts');//文章内容
