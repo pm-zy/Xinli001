@@ -37,7 +37,8 @@ function  getTags (slug ,callback){
                     }
                 });
 
-            callback(tags)
+            callback(tags);
+            return;
 
 
         }

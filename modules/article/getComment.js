@@ -57,7 +57,13 @@ function getConment(param,callback){
                 }
             });
             //console.log(cmtList)
-            callback(cmtList);
+            if(cmtList.length<=0){
+                callback('null');
+                return;
+            }
+            else
+                callback(cmtList);
+            return;
 
         }
     )
