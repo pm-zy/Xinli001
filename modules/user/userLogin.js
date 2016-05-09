@@ -21,14 +21,15 @@ Redirecting to <a href="http://account.xinli001.com/login">http://account.xinli0
 </html>
 0
 */
-//param={
-// username:panda_m@126.com
-// password:*******
-// }
+//var p={
+// username:'panda_m@126.4com',
+// password:'yumeng'
+// };
 var userCookie;
-function userLogin(param){
-    if(param == undefined || param == null){
-        //callback('Param Error');
+function userLogin(username, password, callback) {
+    if (username == '' || password == '') {
+        callback('Account Error');
+        //console.log('u')
         return;
     }
      request(
@@ -39,18 +40,36 @@ function userLogin(param){
                  ContentType: 'application/x-www-form-urlencoded; charset=UTF-8'
              },
              form: {
-                 username: param.username,
-                 password: param.password
+                 username: username,
+                 password: password
              }
          },
          function(err,res,body){
              if(err){
-                 //callback(err);
+                 callback(err);
                  return;
              }
              userCookie = res.headers['set-cookie'];
+                 var resJson = JSON.parse(body);
+             //console.log(resJson.code)
+                 if(resJson.code == 0 ){
+                     callback(userCookie);
+                     return;
+                     //console.log(userCookie);
+                 }
+                 else if(resJson.code==-1){
+                     callback('Account Error');
+                     return;
+                 }
+             else {
+                     callback('ERR');
+                     return;
+                 }
+
 
          }
 
      )
 }
+//userLogin(p.username, p.password);
+module.exports = userLogin ;
