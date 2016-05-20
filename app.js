@@ -22,6 +22,7 @@ var uniResult = {
 };
 /// catch 404 and forward to error handler
 app.use(function (req, res, next) {
+  console.log(req.url);
   uniResult.info = 'NOT_FOUND';
   uniResult.status = 404;
   uniResult.data = {};

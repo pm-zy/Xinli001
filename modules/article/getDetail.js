@@ -56,7 +56,5 @@ function getDetail(id,callback){
     )
 
 }
-//getDetail('100318610',function(d){
-//    console.log(d);
-//})
+
 module.exports = getDetail;

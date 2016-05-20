@@ -30,6 +30,7 @@ router.use('/getList',function(req,res){
     });
 });
 router.use('/getDetail/:id',function(req,res){
+    console.log('vbrbvhd');
     var id = req.params.id;
     getDetail(id,function(result){
         parsers.resultProc(req,result,res);
