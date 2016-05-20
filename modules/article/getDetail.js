@@ -38,8 +38,9 @@ function getDetail(id,callback){
             //var date = $('.attr')[0].children[3].children[0].data;//发表时间
             $('.copyright').remove();
             $('#zan-btn').remove();
+        $('.texts').children().last().remove();
             var detail = $.html('.texts');//文章内容
-            var title =  $.html('.title >h2');
+            var title =  $.html('.title >h2');//文章标题
            title = title.slice(4,-5);
             //console.log(title)
             var textObj = {};
@@ -53,4 +54,7 @@ function getDetail(id,callback){
     )
 
 }
+//getDetail('100310245',function(d){
+//    console.log(d);
+//})
 module.exports = getDetail;
