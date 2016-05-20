@@ -39,6 +39,9 @@ function getDetail(id,callback){
             $('.copyright').remove();
             $('#zan-btn').remove();
         $('.texts').children().last().remove();
+            $('.texts').children().last().remove();
+            $('.texts').children().last().remove();
+            $('.texts').children().last().remove();
             var detail = $.html('.texts');//文章内容
             var title =  $.html('.title >h2');//文章标题
            title = title.slice(4,-5);
@@ -54,7 +57,7 @@ function getDetail(id,callback){
     )
 
 }
-//getDetail('100310245',function(d){
-//    console.log(d);
-//})
-module.exports = getDetail;
+getDetail('100310245',function(d){
+    console.log(d);
+})
+//module.exports = getDetail;
