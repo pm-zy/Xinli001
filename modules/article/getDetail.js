@@ -39,16 +39,15 @@ function getDetail(id,callback){
             $('.copyright').remove();
             $('#zan-btn').remove();
         $('.texts').children().last().remove();
-            $('.texts').children().last().remove();
-            $('.texts').children().last().remove();
-            $('.texts').children().last().remove();
+
+            var styleStr  = '<style>img{max-width: 100%;height: auto;}</style>'
             var detail = $.html('.texts');//文章内容
             var title =  $.html('.title >h2');//文章标题
            title = title.slice(4,-5);
             //console.log(title)
             var textObj = {};
             textObj.title = title;
-            textObj.content = detail;
+            textObj.content = styleStr+detail;
             textObj.date = date;
             callback(textObj);
             //console.log(body);
@@ -57,7 +56,7 @@ function getDetail(id,callback){
     )
 
 }
-getDetail('100310245',function(d){
+getDetail('100318610',function(d){
     console.log(d);
 })
 //module.exports = getDetail;
