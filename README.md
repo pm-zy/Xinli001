@@ -1,23 +1,22 @@
 # Xinli001
 壹心理文章Node.js API
 
-临时URL（下个月月初会改）:http://www.varpm.com:3002/v1
-不要问我为什么还没改。。。我找不到域名的解析入口了。。。
+URL: http://xinliapi.varpm.com/v1
 
 自己搭的话运行端口：3002
 
-#文章
-##获取当前分类下的标签（tag）
+# 文章
+## 获取当前分类下的标签（tag）
 
-URL:/article/getTags
+URL: /article/getTags
 
 请求方式：GET/SONP
 
 参数：
 ```
-'sort':string
+`slug: string`
 ```
-###sort可选值：
+### slug可选值：
 - 全部 ""
 - 婚恋 "marry"
 - 亲子 "family"
@@ -25,7 +24,7 @@ URL:/article/getTags
 - 健康 "healthy"
 - 科普 "science"
 
-####返回信息
+#### 返回信息
 ```js
 {
     status:number
@@ -38,11 +37,11 @@ URL:/article/getTags
 }
 ```
 
-####示例代码
+#### 示例代码
 ```
-http://www.varpm.com:3002/v1/article/getTags?sort=family
+http://www.varpm.com:3002/v1/article/getTags?slug=family
 ```
-####返回信息示例
+#### 返回信息示例
 ```json
 {
     "status": 200,
@@ -68,21 +67,21 @@ http://www.varpm.com:3002/v1/article/getTags?sort=family
 }
 ```
 
-##按分类获取文章列表
+## 按分类获取文章列表
 
-URL:/article/getList
+URL: /article/getList
 
 请求方式:GET
 
 参数:
 
 ```
-'sort' : string
+'slug' : string
 'tag'  : string
 'flag' : string
 'page' : number
 ```
-###sort可选值：
+### slug可选值：
 - 全部 ""
 - 婚恋 "marry"
 - 亲子 "family"
@@ -90,17 +89,17 @@ URL:/article/getList
 - 健康 "healthy"
 - 科普 "science"
 
-###tag可选值：
+### tag可选值：
 由getTag获取
 
-###flag可选值：
+### flag可选值：
 - "hot" 最热文章
 - "new" 最新文章
 
-###page可选值：
+### page可选值：
 从1开始
 
-####返回信息
+#### 返回信息
 ```js
 {
     status:number
@@ -124,11 +123,11 @@ URL:/article/getList
 
 ```
 
-####示例代码
+#### 示例代码
 ```
-http://www.varpm.com:3002/v1/article/getList?flag=new&page=1
+/article/getList?flag=new&page=1
 ```
-####返回信息示例
+#### 返回信息示例
 ```json
 {
     "status": 200,
@@ -250,18 +249,18 @@ http://www.varpm.com:3002/v1/article/getList?flag=new&page=1
     ]
 }
 ```
-##获取文章详情
+## 获取文章详情
 
 URL:/article/getDetail/
 
 请求方式:GET/POST/JSONP
 
-####参数:
+#### 参数:
 ```
 'ID' : string
 ```
 
-####返回信息
+#### 返回信息
 ```js
 {
     status:number
@@ -276,11 +275,11 @@ URL:/article/getDetail/
 }
 ```
 
-####示例代码
+#### 示例代码
 ```
-http://www.varpm.com:3002/v1/article/getDetail/100317885
+/article/getDetail/100317885
 ```
-####返回信息示例
+#### 返回信息示例
 ```json
 {
     "status": 200,
@@ -294,20 +293,20 @@ http://www.varpm.com:3002/v1/article/getDetail/100317885
 
 ```
 
-##获取轮播图
+## 获取轮播图
 
-URL:/article/getBanner/
+URL: /article/getBanner/
 
-请求方式:GET/POST/JSONP
+请求方式: GET/POST/JSONP
 
-####参数: 无
+#### 参数: 无
 
-####示例代码
+#### 示例代码
 ```
 http://www.varpm.com:3002/v1/article/getBanner/
 ```
 
-####返回信息
+#### 返回信息
 ```js
 {
     status:number
@@ -323,7 +322,7 @@ http://www.varpm.com:3002/v1/article/getBanner/
 ```
 
 
-####返回信息示例
+#### 返回信息示例
 ```json
 {
     "status": 200,
@@ -358,24 +357,24 @@ http://www.varpm.com:3002/v1/article/getBanner/
 }
 ```
 
-##获取某篇文章的评论
+## 获取某篇文章的评论
 
-URL:/article/getComment/
+URL: /article/getComment/
 
-请求方式:GET/JSONP
+请求方式: GET/JSONP
 
-####参数:
+#### 参数:
 ```
-'id':string  //文章的ID
-'page':number  //评论的页数，默认第一页
-```
-
-####示例代码
-```
-http://www.varpm.com:3002/v1/article/getComment?id=100317971&page=1
+'id': string  //文章的ID
+'page': number  //评论的页数，默认第一页
 ```
 
-####返回信息
+#### 示例代码
+```
+/article/getComment?id=100317971&page=1
+```
+
+#### 返回信息
 ```js
 {
     status:number
@@ -392,7 +391,7 @@ http://www.varpm.com:3002/v1/article/getComment?id=100317971&page=1
 ```
 
 
-####返回信息示例
+#### 返回信息示例
 ```json
 {
     "status": 200,
@@ -461,5 +460,4 @@ http://www.varpm.com:3002/v1/article/getComment?id=100317971&page=1
     ]
 }
 ```
-##非正常（2xx）信息说明
-本宝宝出门两天，有啥问题联系QQ 910739015
+## 非正常（2xx）信息说明 
