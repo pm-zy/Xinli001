@@ -14,15 +14,17 @@ URL: /article/getTags
 
 参数：
 ```
-`slug: string`
+`slug: number`
 ```
 ### slug可选值：
-- 全部 ""
-- 婚恋 "marry"
-- 亲子 "family"
-- 职场 "career"
-- 健康 "healthy"
-- 科普 "science"
+- 全部 0
+- 婚恋 1
+- 健康 2
+- 职场 3
+- 性心理 4
+- 科普 5
+- 成长 6
+- 短篇·漫画 7
 
 #### 返回信息
 ```js
@@ -461,3 +463,5 @@ URL: /article/getComment/
 }
 ```
 ## 非正常（2xx）信息说明 
+
+- 400: 'PARAM_ERROR'
